@@ -47,8 +47,8 @@ public class MainApplication {
 
     // (1) Реализуйте метод greetings(), который при вызове должен отпечатать в столбец 4 слова:
     // Hello, World, from, Java;
-    public static void greetings()
-    {
+    public static void greetings() {
+
         System.out.println("Hello\nWorld\nfrom\nJava\n");
     }
 
@@ -56,8 +56,8 @@ public class MainApplication {
     // переменные a, b и c. Метод должен посчитать их сумму, и если она больше или равна 0,
     // то вывести в консоль сообщение “Сумма положительная”, в противном случае -
     // “Сумма отрицательная”;
-    public static void checkSign(int a, int b, int c)
-    {
+    public static void checkSign(int a, int b, int c) {
+
         int res = a + b + c;
         if (res >= 0){
             System.out.println("Сумма положительная");
@@ -71,15 +71,15 @@ public class MainApplication {
     // любым начальным значением. Если data меньше 10 включительно, то в консоль должно
     // быть выведено сообщение “Красный”, если от 10 до 20 включительно, то “Желтый”,
     // если больше 20 - “Зеленый”;
-    public static void selectColor(int a)
-    {
+    public static void selectColor(int a) {
+
         if ( a <= 10 ){
             System.out.println("Красный (" + "a = " + a + ")");
         }
-        else if ( a > 10 && a <= 10){
+        else if ( a <= 20){
             System.out.println("Сумма отрицательная (" + "a = " + a + ")");
         }
-        else if ( a > 20 ){
+        else {
             System.out.println("Зеленый (" + "a = " + a + ")");
         }
     }
@@ -88,8 +88,8 @@ public class MainApplication {
     // с любыми начальными значениями. Если a больше или равно b, то необходимо вывести в консоль
     // сообщение “a >= b”, в противном случае “a < b”;
 
-    public static void compareNumbers(int a,int b)
-    {
+    public static void compareNumbers(int a,int b) {
+
         if ( a >= b ){
             System.out.println("a (" + a + ") >= b (" + b + ")");
         }
@@ -101,8 +101,8 @@ public class MainApplication {
     // (5) Создайте метод addOrSubtractAndPrint(int initValue, int delta, boolean increment).
     // Если increment = true, то метод должен к initValue прибавить delta и отпечатать в консоль результат,
     // в противном случае - вычесть;
-    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment)
-    {
+    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
+
         if ( increment ){
             System.out.println(initValue + delta);
         }
