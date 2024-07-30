@@ -63,34 +63,39 @@ public class Main {
     private static void equalPointPartsArr(int[] arr) {
         System.out.println(Arrays.toString(arr));
 
-        if(arr.length < 2) System.out.println("Маленький массив");
-        else {
-            for (int i = 0; i < arr.length - 1; i++) {
-                System.out.print("i = " + i);
-                int sumLeft = 0;
-                int sumRight = 0;
-
-                for (int j = 0; j <= i; j++) {
-                    sumLeft += arr[j];
-                }
-
-                for (int j = i + 1; j <= arr.length - 1; j++) {
-                    sumRight += arr[j];
-                }
-
-                System.out.print("; sumLeft = " + sumLeft);
-                System.out.println("; sumRight = " + sumRight);
-
-                if (sumLeft == sumRight) {
-                    System.out.println("Граница между " + i + " и " + (i+1));
-                    break;
-                }
-                if ((i == arr.length - 2) && (sumLeft != sumRight)) {
-                    System.out.println("Граница не найдена");
-                }
-
-            }
+        if(arr.length < 2) {
+            System.out.println("Маленький массив");
+            return;
         }
+
+        int sumArr = 0;
+        for (int i = 0; i <= arr.length-1; i++) {
+            sumArr += arr[i];
+        }
+        System.out.println("sumArr = " + sumArr);
+
+        int sumLeft = 0;
+        int sumRight = sumArr;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            System.out.print("i = " + i);
+
+            sumLeft += arr[i];
+            sumRight -= arr[i];
+
+            System.out.print("; sumLeft = " + sumLeft);
+            System.out.println("; sumRight = " + sumRight);
+
+            if (sumLeft == sumRight) {
+                System.out.println("Граница между " + i + " и " + (i+1));
+                break;
+            }
+            if ((i == arr.length - 2) && (sumLeft != sumRight)) {
+                System.out.println("Граница не найдена");
+            }
+
+        }
+
 
     }
 
@@ -98,31 +103,30 @@ public class Main {
         Реализуйте метод, проверяющий что все элементы массива идут в порядке убывания или
         возрастания (по выбору пользователя)
     */
-    private static void desOrAscendingArr(int[] arr, boolean desOrAsc) {
-        // desOrAsc - true по возрастанию
-        // desOrAsc - false по убыванию
+    private static void desOrAscendingArr(int[] arr, boolean checkForAscendance) {
+        // checkForAscendance - true по возрастанию
+        // checkForAscendance - false по убыванию
         boolean err = false;
         System.out.println(Arrays.toString(arr));
 
         for ( int i = 0; i < arr.length - 1; i++ ) {
             System.out.print("i = " + arr[i]);
-            System.out.println("; i+1 = " + arr[i+1]);
+            System.out.println("; i+1 = " + arr[i + 1]);
 
-            if(desOrAsc && ( arr[i] > arr[i + 1] )){
+            if (checkForAscendance && (arr[i] > arr[i + 1])) {
                 err = true;
                 System.out.println("Не по возрастанию");
                 break;
             }
-            if(!desOrAsc && ( arr[i] < arr[i + 1] )){
+            if (!checkForAscendance && (arr[i] < arr[i + 1])) {
                 err = true;
                 System.out.println("Не по убыванию");
                 break;
             }
-
-            if (!err && desOrAsc) System.out.println("По возрастанию");
-            if (!err && !desOrAsc) System.out.println("По убыванию");
-
         }
+
+        if (!err && checkForAscendance) System.out.println("По возрастанию");
+        if (!err && !checkForAscendance) System.out.println("По убыванию");
 
     }
 
@@ -133,15 +137,13 @@ public class Main {
     private static void revertArr(int[] arr) {
         int[] arrtmp = new int[arr.length];
 
-        for (int i = arr.length-1; i > 0;) {
+        int i = arr.length - 1;
 
-            for (int j = 0; j < arr.length; j++) {
+        for (int j = 0; j < arr.length; j++) {
 
-                System.out.println("arrtmp[" + j + "] = arr[" + i + "]");
-                arrtmp[j] = arr[i];
-                i--;
-            }
-
+            System.out.println("arrtmp[" + j + "] = arr[" + i + "]");
+            arrtmp[j] = arr[i];
+            i--;
         }
 
         System.out.println(Arrays.toString(arr));
